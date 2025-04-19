@@ -21,7 +21,13 @@ public class KeiApplication {
 ```
 
 ### Usage Util
-1. You are abe to import this dependency via `pom.xml`
+You are abe to import this dependency via `pom.xml`. 
+we provide a lot of util class including
+- Email (Send email -> send email sync mode , send email async mode)
+- File (Manage file -> get file , download file , save file)
+- Token (generate salt, extract jwt token)
+- Uuid (generate uuidv7)
+
 
 ### Usage Exception Handler
 1. Need to enable this configuration in `application.yml`
