@@ -47,3 +47,6 @@ kei:
   mail:
     enabled: true  
 ```
+
+### Maven Central Repository
+https://central.sonatype.com/artifact/io.github.brightkut/kei/overview
