@@ -8,27 +8,41 @@
         <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.brightkut</groupId>
+
+    <groupId>io.github.brightkut</groupId>
     <artifactId>kei</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>kei</name>
-    <description>kei</description>
-    <url/>
+    <description>kei framework for rest api build </description>
+    <packaging>jar</packaging>
+
+    <url>https://github.com/brightkut/kei</url>
+
     <licenses>
-        <license/>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
     </licenses>
+
     <developers>
-        <developer/>
+        <developer>
+          <name>Disorn Thitikornkovit</name>
+          <email>dsorn2@gmail.com</email>
+        </developer>
     </developers>
+
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <connection>scm:git:git://github.com/brightkut/kei.git</connection>
+        <developerConnection>scm:git:ssh://github.com:brightkut/kei.git</developerConnection>
+        <url>https://github.com/brightkut/kei.git</url>
     </scm>
+
     <properties>
         <java.version>21</java.version>
     </properties>
+
     <dependencies>
         <!-- Lombok -->
         <dependency>
@@ -101,7 +115,63 @@
                         </exclude>
                     </excludes>
                 </configuration>
+                <!-- Add the below plugin to publish maven central -->
             </plugin>
+            <!-- Attach source JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Attach Javadoc JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+                  <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                    <executions>
+                      <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                          <goal>sign</goal>
+                        </goals>
+                      </execution>
+                    </executions>
+                  </plugin>
+
+                  <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.5.0</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                      <publishingServerId>central</publishingServerId>
+                      <autoPublish>true</autoPublish>
+                      <waitUntil>published</waitUntil>
+                    </configuration>
+                  </plugin>
         </plugins>
     </build>
 
