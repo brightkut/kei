@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: kei
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: xxxx
+    password: xxxx
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
