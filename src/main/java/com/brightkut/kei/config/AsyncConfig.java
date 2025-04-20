@@ -2,6 +2,7 @@ package com.brightkut.kei.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
@@ -9,6 +10,7 @@ import java.util.concurrent.Executor;
 @Configuration(proxyBeanMethods = false)
 public class AsyncConfig {
 
+    @Primary
     @Bean
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
