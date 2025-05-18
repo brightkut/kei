@@ -1,5 +1,6 @@
 package com.brightkut.kei.util;
 
+import lombok.experimental.UtilityClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.InputStreamResource;
@@ -18,8 +19,8 @@ import java.util.Base64;
 
 import static java.lang.String.format;
 
+@UtilityClass
 public class FileUtil {
-    private FileUtil() {}
 
     private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
